@@ -24,13 +24,9 @@ const app = require('./app');
 
 // Connect to the database and replace the password placeholder
 // with the actual password from the environment variable
-const DB = process.env.DATABASE.replace(
-  '<db_password>',
-  process.env.DB_PASSWORD
-);
+const DB = process.env.ATLAS_URI;
 
 // Connect to MongoDB using mongoose
-console.log(DB); // check the database connection string
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
